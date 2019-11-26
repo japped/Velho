@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const auth = require('auth.json');
-
-const prefix = '!'; // Prefix "!"
+const config = require('./config.json');
 
 const exampleEmbed = {
 	color: 0xE69138,
@@ -43,17 +41,17 @@ bot.on('message', message => {
       // Muuttujalistaa:
       let msg = message.content.toUpperCase(); // Casesensitive VEKS!
       let sender = message.author; // Komennon käyttäjä
-      let cont = message.content.slice(prefix.length).split(" "); // Leikkaa prefix pois komennosta
+      let cont = message.content.slice(config.prefix.length).split(" "); // Leikkaa config.prefix pois komennosta
       let args = cont.slice(1); // Leikkaa pois commennon, jättäen argumentit
 
 
 
-      if (msg === prefix + 'PING') { //Komento
+      if (msg === config.prefix + 'PING') { //Komento
 
         message.channel.send('PimpeliPOM!'); //vastaus komentoon
       }
 
-      if (msg.startsWith(prefix + 'MASSAPOISTO')) {
+      if (msg.startsWith(config.prefix + 'MASSAPOISTO')) {
 
         async function purge() {
           message.delete(); // Poistaa komennon
@@ -64,7 +62,7 @@ bot.on('message', message => {
           }
 
           if (isNaN(args[0])) {
-            message.channel.send('Numeroita kaipailen, paljonko poistetaan? \n Käyttö: ' + prefix + 'massapoisto <määrä>');
+            message.channel.send('Numeroita kaipailen, paljonko poistetaan? \n Käyttö: ' + config.prefix + 'massapoisto <määrä>');
             return;
           }
 
@@ -83,28 +81,28 @@ bot.on('message', message => {
 
       }
 
-      if (msg === prefix + 'KUTSU') {
+      if (msg === config.prefix + 'KUTSU') {
 
         message.delete();
         message.reply('**Hellanlettas olet ehaaana...!** :heart: \n Velhon discord serveri: https://discord.gg/4qEaQNm \n Botin kutsulinkki: https://discordapp.com/api/oauth2/authorize?client_id=648543696794419200&permissions=8&scope=bot')
       }
 
-      if (msg === prefix + 'PATREON') {
+      if (msg === config.prefix + 'PATREON') {
         message.delete();
         message.reply(' <:patreon:648611456304152576> **Oih! Patreoniin pääset käsiksi täältä:** https://www.patreon.com/velho')
       }
 
-      if (msg === prefix + 'MAINOSVIESTIMAINOS') {
+      if (msg === config.prefix + 'MAINOSVIESTIMAINOS') {
         message.delete();
         message.channel.send('**Tervetuloa Velhon luolaan!** <:velhobot:648611262472912907> \n*Jos tämä ei ole Velhonluola serveri, pääset mukaan täältä:* https://discord.gg/4qEaQNm \n\nMinut on aivopesty auttamaan Discord servereitä eri taikakeinoin ja tulen myös auttamaan tulevaisuudessa uusilla taikavoimilla kun niitä opin ajankanssa. Ylhäältä löytyvän linkin kautta pääset Discord serverilleni jossa autamme sinua ongelmissa botin (lue: minun) kanssa! \n <:velhobot:648611262472912907> **Kutsulinkkini:** <tulossa> \n <:patreon:648611456304152576> **Patreon:** https://www.patreon.com/velho');
 
       }
 
-      if (msg === prefix + 'VELHOSÄÄNNÖT') {
+      if (msg === config.prefix + 'VELHOSÄÄNNÖT') {
         message.delete();
         message.channel.send({ embed: exampleEmbed });
       }
-      if (msg.startsWith(prefix + 'POTKI')) {
+      if (msg.startsWith(config.prefix + 'POTKI')) {
         message.delete();
         const user = message.mentions.users.first();
     // If we have a user mentioned
@@ -152,4 +150,4 @@ bot.on('ready', () => {
 });
 
 
-bot.login(auth.token);
+bot.login(config.token);
