@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const auth = require('auth.json');
 
 const prefix = '!'; // Prefix "!"
 
@@ -151,4 +152,4 @@ bot.on('ready', () => {
 });
 
 
-bot.login('YOUR-TOKEN-HERE');
+bot.login(auth.token);
