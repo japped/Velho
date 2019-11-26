@@ -1,7 +1,7 @@
 # Velho
 Velho is my  Discord bot, funny guy if I am to judge.
 
-[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://discord.gg/4qEaQNm ) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/PatBoi/Velho/graphs/commit-activity) [![Discord Chat](https://img.shields.io/discord/648565931395514369.svg)](https://discord.gg/4qEaQNm) 
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://discord.gg/4qEaQNm ) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/PatBoi/Velho/graphs/commit-activity) [![Discord Chat](https://img.shields.io/discord/648565931395514369.svg)](https://discord.gg/4qEaQNm) ![GitHub](https://img.shields.io/github/license/PatBoi/Velho)
 
 
 ## Open Source
