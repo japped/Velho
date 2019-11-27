@@ -3,6 +3,10 @@ const bot = new Discord.Client();
 const config = require('./config.json');
 const queue = new Map();
 const ytdl = require('ytdl-core');
+const GoogleImages = require("google-images");
+const { Client, Attachment } = require("discord.js");
+const client = new Client;
+const googleImages = new GoogleImages("ID", "API");
 
 const exampleEmbed = {
 	color: 0xE69138,
@@ -104,6 +108,21 @@ bot.on('message', message => {
         message.delete();
         message.channel.send({ embed: exampleEmbed });
       }
+			if (msg === prefix + 'TISUT') {
+				async function onMessage(message) {
+				try {
+					const results = await googleImages.search("Boobs");
+    			const reply = !results.length ?
+      		"No results" :
+      		new Attachment(results[Math.floor(Math.random() * results.length)].url);
+    			message.channel.send(reply);
+				}
+				catch (e) {
+    		console.error(e);
+    			message.channel.send("Error happened, see the console");
+  }
+}
+			}
       if (msg.startsWith(config.prefix + 'POTKI')) {
         message.delete();
         const user = message.mentions.users.first();
